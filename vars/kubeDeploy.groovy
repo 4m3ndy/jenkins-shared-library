@@ -2,7 +2,7 @@ def call(Map deploymentConfig) {
   pipeline {
     agent {
       kubernetes {
-        yamlFile 'org/andela/podTemplates/JenkinsKubernetesPod.yaml'
+        yamlFile libraryResource 'org/andela/podTemplates/JenkinsKubernetesPod.yaml'
       }
     }
 
