@@ -10,9 +10,11 @@ def call(Map deploymentConfig) {
       stage('Deploy') {
         steps {
           container('kubectl') {
-            def deploymentObj = libraryResource "org/andela/deployments/${deploymentConfig.name}-deployment.yaml"
-            print deploymentObj
-            sh 'kubectl get namespaces'
+            script {
+              def deploymentObj = libraryResource "org/andela/deployments/${deploymentConfig.name}-deployment.yaml"
+              print deploymentObj
+              sh 'kubectl get namespaces'
+            }
           }
         }
       }
