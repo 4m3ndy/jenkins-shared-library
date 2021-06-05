@@ -3,11 +3,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    env: andela-jenkins-agent
+    andela-build-agent: true
 spec:
   containers:
   - name: kubectl
-    image: bitnami/kubectl:1.21.1-debian-10-r15
+    image: roffe/kubectl:v1.13.2
     imagePullPolicy: Always
     command:
     - cat
@@ -30,4 +30,3 @@ spec:
   - name: kubeconfig
     secret:
       secretName: kubeconfig
-      defaultMode: 0400
